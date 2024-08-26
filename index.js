@@ -2,8 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 // Import routes
-const characterRoutes = require('./routes/characterRoutes');
 const armorRoutes = require('./routes/armorRoutes');
+const characterRoutes = require('./routes/characterRoutes');
+const ingredientRoutes = require('./routes/ingredientRoutes');
+const keyItemRoutes = require('./routes/keyItemRoutes');
+const materialRoutes = require('./routes/materialRoutes');
+const medicineRoutes = require('./routes/medicineRoutes');
+const weaponRoutes = require('./routes/weaponRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,8 +29,14 @@ db.once('open', () => {
 });
 
 // Use the route
-app.use('/api', characterRoutes); // All character routes are prefixed with '/api'
-app.use('/api', armorRoutes)
+// all routes are prefixed with '/api'
+app.use('/api', characterRoutes);
+app.use('/api', armorRoutes);
+app.use('/api', ingredientRoutes);
+app.use('/api', keyItemRoutes);
+app.use('/api', materialRoutes);
+app.use('/api', medicineRoutes);
+app.use('/api', weaponRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
