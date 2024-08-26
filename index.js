@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const characterRoutes = require('./routes/characterRoutes'); // Import the route
+require('dotenv').config();
+// Import routes
+const characterRoutes = require('./routes/characterRoutes');
+const armorRoutes = require('./routes/armorRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +25,7 @@ db.once('open', () => {
 
 // Use the route
 app.use('/api', characterRoutes); // All character routes are prefixed with '/api'
+app.use('/api', armorRoutes)
 
 // Basic route
 app.get('/', (req, res) => {
