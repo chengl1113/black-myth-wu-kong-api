@@ -23,8 +23,8 @@ const Navigational = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/docs">Docs</Nav.Link>
-                        <Nav.Link href="/blog">Blog</Nav.Link>
+                        <Nav.Link href="#">Docs</Nav.Link>
+                        <Nav.Link href="#">Blog</Nav.Link>
                     </Nav>
                     <Nav>
                         {/* GitHub Link */}
@@ -38,7 +38,7 @@ const Navigational = () => {
                 <Container style={{ width: "auto" }}>
                     <DarkModeSwitch
                         style={{ width: 24, height: 24 }}
-                        checked={theme === "light" ? true : false}
+                        checked={theme === "light" ? false : true}
                         onChange={toggleTheme}
                         size={120}
                     />
