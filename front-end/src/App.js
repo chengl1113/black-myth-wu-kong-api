@@ -1,5 +1,6 @@
 import './App.css';
-import logo from './assets/logo.jpg';
+import logoLight from './assets/logoLight.jpg';
+import logoDark from './assets/logoDark.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { FaGithub } from 'react-icons/fa';
@@ -26,11 +27,11 @@ function App() {
 
   return (
     <div className={`App ${theme}`}>
-      <Navbar bg={theme} data-bs-theme={theme} sticky="top" className={'shadow'}>
+      <Navbar bg={theme} data-bs-theme={theme} sticky="top" className={'shadow-sm'}>
         <Container>
           <Navbar.Brand href="#">
             <img
-              src={logo}
+              src={theme == 'light' ? logoLight : logoDark}
               width="40"
               height="40"
               className="d-inline-block align-top"
