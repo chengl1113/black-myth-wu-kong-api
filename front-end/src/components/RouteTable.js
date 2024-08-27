@@ -19,7 +19,7 @@ const RouteTable = ({ url, description }) => {
                 <tbody>
                     <tr>
                         <td>GET</td>
-                        <td><Nav.Link style={{ color: "#B3966F" }} href={url} target="_blank">{url}</Nav.Link></td>
+                        <td><a style={{ color: "#B3966F" }} href={url} target="_blank" rel="noopener noreferrer">{url}</a></td>
                         <td>{description} <strong>Black Myth: Wu Kong</strong></td>
                     </tr>
                 </tbody>

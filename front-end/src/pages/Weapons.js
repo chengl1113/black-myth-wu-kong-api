@@ -4,92 +4,54 @@ import CodeBlock from '../components/CodeBlock';
 import RouteTable from '../components/RouteTable';
 
 const Weapons = () => {
-    const jsonString = `{
-        success: true,
-        count: 2,
-        data: [{
-            id: "17f69448ceel0i0a57bokoqz409yb",
-            name: "Firebone Arrow",
-            image: "https://eldenring.fanapis.com/images/ammos/17f69448ceel0i0a57bokoqz409yb.png",
-            description: "Arrow whittled from animal bones. The tip is set alight before firing",
-            type: "Pierce",
-            attackPower: [{
-                name: "Phy",
-                amount: 10
-              },
-              {
-                name: "Mag",
-                amount: 0
-              },
-              {
-                name: "Fire",
-                amount: 90
-              },
-              {
-                name: "Ligt",
-                amount: 0
-              },
-              {
-                name: "Holy",
-                amount: 0
-              },
-              {
-                name: "Crit",
-                amount: 100
-              }
-            ],
-            passive: "-"
-          },
-          {
-            id: "17f695dc715l0i0a59pf1x5fb5112r",
-            name: "Bloodbone Arrow (fletched)",
-            image: "https://eldenring.fanapis.com/images/ammos/17f695dc715l0i0a59pf1x5fb5112r.png",
-            description: "Arrow whittled from animal bones. The tip is daubed with a golden tincture. Deals holy damage. Craftable item. The fletching adds distance to the arrow's flight.",
-            type: "Pierce",
-            attackPower: [{
-                name: "Phy",
-                amount: 25
-              },
-              {
-                name: "Mag",
-                amount: 0
-              },
-              {
-                name: "Fire",
-                amount: 0
-              },
-              {
-                name: "Ligt",
-                amount: 0
-              },
-              {
-                name: "Holy",
-                amount: 0
-              },
-              {
-                name: "Crit",
-                amount: 100
-              }
-            ],
-            passive: "Causes blood loss build up (55)"
-          }
-        ]
-      }`
-
-    return (
-        <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>
-            <h1>Armors Route</h1>
-            <br />
-            <h2>Introduction</h2>
-            <p>This route fetches a list of all armors that can be obtained in Black Myth: Wu Kong, and outputs that in JSON format.</p>
-            <h2>Schema</h2>
-            <SchemaTable />
-            <h2>Sample Result</h2>
-            <CodeBlock jsonString={jsonString} />
-            <h2>Route</h2>
-            <RouteTable />
-        </div>
-    )
+  const jsonString = `{
+    "sucess": true,
+    "count": 2,
+    "data": [
+        {
+            "_id": "66cab6be173c7047a8e96748",
+            "name": "Golden Loong Staff",
+            "rarity": "Mythical",
+            "attack": 108,
+            "defense": 0,
+            "crit_percent": 0,
+            "effect": "Moderately increases the Damage dealt by all Pillar Stance moves. A loong can be summoned to execute Thunder at the enemy at Pillar Stance Heavy Attacks that cost 3 or 4 Focus Points."
+        },
+        {
+            "_id": "66cab6be173c7047a8e9674a",
+            "name": "Kang-Jin Staff",
+            "rarity": "Epic",
+            "attack": 70,
+            "defense": 0,
+            "crit_percent": 6,
+            "effect": "Punishing Downpour executes Thunder Damage to the enemy instead of area Damage."
+        }
+      ]
+}`
+  const schema = [
+    ['name', 'string', 'Name of the weapon'],
+    ['rarity', 'string', 'Rarity of the weapon'],
+    ['attack', 'number', 'Attack of the weapon'],
+    ['defense', 'number', 'defense of the weapon'],
+    ['crit_percent', 'number', 'Crit percent of the weapon'],
+    ['effect', 'string', 'Effect of the weapon'],
+  ]
+  const url = "http://localhost:5000/api/weapons";
+  const description = "This route retrieves a list of all the weapons of ";
+  return (
+    <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>
+      <h1>Weapons Route</h1>
+      <br />
+      <h2>Introduction</h2>
+      <p>This route fetches a list of all the weapons that can be obtained in Black Myth: Wu Kong, and outputs that in JSON format.</p>
+      <h2>Schema</h2>
+      <SchemaTable schema={schema} />
+      <h2>Sample Result</h2>
+      <CodeBlock jsonString={jsonString} />
+      <h2>Route</h2>
+      <RouteTable url={url} description={description} />
+    </div>
+  )
 }
 
 export default Weapons

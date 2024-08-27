@@ -5,76 +5,31 @@ import RouteTable from '../components/RouteTable';
 
 const Armors = () => {
   const jsonString = `{
-        success: true,
-        count: 2,
-        data: [{
-            id: "17f69448ceel0i0a57bokoqz409yb",
-            name: "Firebone Arrow",
-            image: "https://eldenring.fanapis.com/images/ammos/17f69448ceel0i0a57bokoqz409yb.png",
-            description: "Arrow whittled from animal bones. The tip is set alight before firing",
-            type: "Pierce",
-            attackPower: [{
-                name: "Phy",
-                amount: 10
-              },
-              {
-                name: "Mag",
-                amount: 0
-              },
-              {
-                name: "Fire",
-                amount: 90
-              },
-              {
-                name: "Ligt",
-                amount: 0
-              },
-              {
-                name: "Holy",
-                amount: 0
-              },
-              {
-                name: "Crit",
-                amount: 100
-              }
-            ],
-            passive: "-"
-          },
-          {
-            id: "17f695dc715l0i0a59pf1x5fb5112r",
-            name: "Bloodbone Arrow (fletched)",
-            image: "https://eldenring.fanapis.com/images/ammos/17f695dc715l0i0a59pf1x5fb5112r.png",
-            description: "Arrow whittled from animal bones. The tip is daubed with a golden tincture. Deals holy damage. Craftable item. The fletching adds distance to the arrow's flight.",
-            type: "Pierce",
-            attackPower: [{
-                name: "Phy",
-                amount: 25
-              },
-              {
-                name: "Mag",
-                amount: 0
-              },
-              {
-                name: "Fire",
-                amount: 0
-              },
-              {
-                name: "Ligt",
-                amount: 0
-              },
-              {
-                name: "Holy",
-                amount: 0
-              },
-              {
-                name: "Crit",
-                amount: 100
-              }
-            ],
-            passive: "Causes blood loss build up (55)"
-          }
-        ]
-      }`
+    "success": true,
+    "count": 2,
+    "data": [
+        {
+            "_id": "66caba17173c7047a8e9675e",
+            "name": "Bronze Armguard",
+            "rarity": "Rare",
+            "defense": 12,
+            "set_bonus": "Evil Crasher",
+            "set": "Bronze Monkey Armor Set",
+            "effect": "Performing Light Attack following Evanescence directly triggers the Finisher of Light Attack Combo.",
+            "type": "arms"
+        },
+        {
+            "_id": "66caba17173c7047a8e96768",
+            "name": "Ebongold Gaiters",
+            "rarity": "Rare",
+            "defense": 19,
+            "set_bonus": "Dance of the Black Wind",
+            "set": "Ebongold Armor Set",
+            "effect": "After a moment in Cloud Step, considerably increases Unveiling Strike Damage.",
+            "type": "legs"
+        }
+      ]
+}`
 
   const schema = [
     ['name', 'string', 'Name of the armor piece'],
@@ -85,7 +40,7 @@ const Armors = () => {
     ['effect', 'string', 'Special effects of this armor'],
     ['type', 'string', 'Category of the armor piece (headgear, chest, arms, or legs)'],
   ]
-  const url = "http:localhost:3000/armors";
+  const url = "http://localhost:5000/api/armors";
   const description = "This route retrieves a list of all the armors of ";
   return (
     <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>

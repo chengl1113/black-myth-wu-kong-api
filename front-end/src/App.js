@@ -16,7 +16,7 @@ import GettingStarted from './pages/GettingStarted';
 import Ingredients from './pages/Ingredients';
 import KeyItems from './pages/KeyItems';
 import Materials from './pages/Materials';
-import Medicines from './pages/KeyItems';
+import Medicines from './pages/Medicines';
 import Weapons from './pages/Weapons';
 
 

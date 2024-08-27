@@ -1,59 +1,73 @@
 import React, { useState } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { twilight } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Button } from 'react-bootstrap';
+import { Nav, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 
-const CodeBlock = ({ jsonString }) => {
-    const [copySuccess, setCopySuccess] = useState('');
-    const [isHovered, setIsHovered] = useState(false);
+const Sidebar = () => {
+    const { theme } = useTheme();
+    const [collapsed, setCollapsed] = useState(false);
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(jsonString)
-            .then(() => setCopySuccess('Copied!'))
-            .catch(() => setCopySuccess('Failed to copy'));
-
-        // Reset the message after a short delay
-        setTimeout(() => setCopySuccess(''), 2000);
-    };
-
-    const handleMouseOver = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseOut = () => {
-        setIsHovered(false);
+    // Toggle the sidebar collapse state
+    const toggleSidebar = () => {
+        setCollapsed(!collapsed);
     };
 
     return (
-        <div
-            style={{ position: 'relative' }}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-        >
-            {isHovered && (
-                <Button
-                    onClick={handleCopy}
-                    variant='secondary'
-                    style={{
-                        position: 'absolute',
-                        top: '2%',
-                        right: '5%',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '4px',
-                        padding: '5px 10px',
-                        cursor: 'pointer'
-                    }}
-                >
-                    Copy
-                </Button>
-            )}
-            {copySuccess && <span style={{ position: 'absolute', top: '10px', right: '70px', color: 'green' }}>{copySuccess}</span>}
-            <SyntaxHighlighter language="javascript" style={twilight} customStyle={{ fontSize: '14px' }}>
-                {jsonString}
-            </SyntaxHighlighter>
-        </div>
+        <>
+            {/* Button to toggle the sidebar */}
+            <Button
+                onClick={toggleSidebar}
+                style={{
+                    position: 'fixed',
+                    top: '10px',
+                    left: '10px',
+                    zIndex: 1000
+                }}>
+                {collapsed ? 'Expand' : 'Collapse'}
+            </Button>
+
+            <div
+                style={{
+                    width: collapsed ? '50px' : '200px',
+                    height: '100vh',
+                    backgroundColor: theme === 'light' ? '#FFFFFF' : '#212529',
+                    position: 'sticky',
+                    top: 0,
+                    padding: collapsed ? '10px 0' : '10px',
+                    borderRight: theme === 'light' ? '1px solid #ddd' : '1px solid #444',
+                    overflow: 'hidden',
+                    transition: 'width 0.3s ease',
+                }}
+            >
+                <Nav className="flex-column" variant={theme === 'light' ? 'pills' : 'dark'}>
+                    <Nav.Link as={Link} to="/" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'GS' : 'Getting Started'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/armors" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'A' : 'Armors'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/characters" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'C' : 'Characters'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/ingredients" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'I' : 'Ingredients'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/key-items" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'KI' : 'Key Items'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/materials" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'M' : 'Materials'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/medicines" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'Md' : 'Medicines'}
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/weapons" style={{ color: theme === 'light' ? '#000' : '#fff', margin: '10px 0', textAlign: 'center' }}>
+                        {collapsed ? 'W' : 'Weapons'}
+                    </Nav.Link>
+                </Nav>
+            </div>
+        </>
     );
 };
 
-export default CodeBlock;
+export default Sidebar;

@@ -4,92 +4,48 @@ import CodeBlock from '../components/CodeBlock';
 import RouteTable from '../components/RouteTable';
 
 const Ingredients = () => {
-    const jsonString = `{
-        success: true,
-        count: 2,
-        data: [{
-            id: "17f69448ceel0i0a57bokoqz409yb",
-            name: "Firebone Arrow",
-            image: "https://eldenring.fanapis.com/images/ammos/17f69448ceel0i0a57bokoqz409yb.png",
-            description: "Arrow whittled from animal bones. The tip is set alight before firing",
-            type: "Pierce",
-            attackPower: [{
-                name: "Phy",
-                amount: 10
-              },
-              {
-                name: "Mag",
-                amount: 0
-              },
-              {
-                name: "Fire",
-                amount: 90
-              },
-              {
-                name: "Ligt",
-                amount: 0
-              },
-              {
-                name: "Holy",
-                amount: 0
-              },
-              {
-                name: "Crit",
-                amount: 100
-              }
-            ],
-            passive: "-"
-          },
-          {
-            id: "17f695dc715l0i0a59pf1x5fb5112r",
-            name: "Bloodbone Arrow (fletched)",
-            image: "https://eldenring.fanapis.com/images/ammos/17f695dc715l0i0a59pf1x5fb5112r.png",
-            description: "Arrow whittled from animal bones. The tip is daubed with a golden tincture. Deals holy damage. Craftable item. The fletching adds distance to the arrow's flight.",
-            type: "Pierce",
-            attackPower: [{
-                name: "Phy",
-                amount: 25
-              },
-              {
-                name: "Mag",
-                amount: 0
-              },
-              {
-                name: "Fire",
-                amount: 0
-              },
-              {
-                name: "Ligt",
-                amount: 0
-              },
-              {
-                name: "Holy",
-                amount: 0
-              },
-              {
-                name: "Crit",
-                amount: 100
-              }
-            ],
-            passive: "Causes blood loss build up (55)"
-          }
-        ]
-      }`
-
-    return (
-        <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>
-            <h1>Armors Route</h1>
-            <br />
-            <h2>Introduction</h2>
-            <p>This route fetches a list of all armors that can be obtained in Black Myth: Wu Kong, and outputs that in JSON format.</p>
-            <h2>Schema</h2>
-            <SchemaTable />
-            <h2>Sample Result</h2>
-            <CodeBlock jsonString={jsonString} />
-            <h2>Route</h2>
-            <RouteTable />
-        </div>
-    )
+  const jsonString = `{
+    "success": true,
+    "count": 2,
+    "data": [
+        {
+            "_id": "66cac2e2173c7047a8e967a9",
+            "name": "Purple Lingzhi",
+            "rarity": "Uncommon",
+            "cost_will": 90,
+            "description": "An auspicious fungus that features a luxurious purple hue. This can be used to make medicines"
+        },
+        {
+            "_id": "66cac2e2173c7047a8e967a2",
+            "name": "Fragrant Jade Flower",
+            "rarity": "Uncommon",
+            "cost_will": 120,
+            "description": "Possessing a cool fragrance, it bestows relief and solace upon inhalation. This can be used to make medicines"
+        }
+      ]
+}`
+  const schema = [
+    ['name', 'string', 'Name of the ingredient'],
+    ['rarity', 'string', 'Rarity of the ingredient'],
+    ['cost_will', 'number', 'Will cost of the ingredient'],
+    ['description', 'string', 'A short description of the item'],
+  ]
+  const url = "http://localhost:5000/api/ingredients";
+  const description = "This route retrieves a list of all the armors of ";
+  return (
+    <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>
+      <h1>Ingredients Route</h1>
+      <br />
+      <h2>Introduction</h2>
+      <p>This route fetches a list of all the ingredients that can be obtained in Black Myth: Wu Kong, and outputs that in JSON format.</p>
+      <h2>Schema</h2>
+      <SchemaTable schema={schema} />
+      <h2>Sample Result</h2>
+      <CodeBlock jsonString={jsonString} />
+      <h2>Route</h2>
+      <RouteTable url={url} description={description} />
+    </div>
+  )
 }
 
 export default Ingredients
