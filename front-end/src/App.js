@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 // Componenet imports
 import Navigational from './components/Navigational';
+import Sidebar from './components/Sidebar';
 
 // Context imports
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -23,8 +24,10 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className={`App ${theme}`}>
-        <Navigational theme={theme} toggleTheme={toggleTheme} />
+      <Navigational theme={theme} toggleTheme={toggleTheme} />
+      <div className='body'>
+        <Sidebar />
+
       </div>
     </ThemeProvider>
   );
