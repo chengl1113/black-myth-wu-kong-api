@@ -17,7 +17,7 @@ const Navigational = () => {
                         width="40"
                         height="40"
                         className="d-inline-block align-top"
-                        alt="Black Myth: Wu Kong API logo"
+                        alt="Black Myth: Wukong API logo"
                     />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

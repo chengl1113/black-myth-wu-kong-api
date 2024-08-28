@@ -41,7 +41,7 @@ const Characters = () => {
       <h1>Characters Route</h1>
       <br />
       <h2>Introduction</h2>
-      <p>This route fetches a list of all characters and enemies that can be encountered in Black Myth: Wu Kong, and outputs that in JSON format.</p>
+      <p>This route fetches a list of all characters and enemies that can be encountered in Black Myth: Wukong, and outputs that in JSON format.</p>
       <h2>Schema</h2>
       <SchemaTable schema={schema} />
       <h2>Sample Result</h2>

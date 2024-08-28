@@ -1,6 +1,5 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
-import { Nav } from 'react-bootstrap';
 import { useTheme } from '../contexts/ThemeContext';
 
 const RouteTable = ({ url, description }) => {
@@ -20,7 +19,7 @@ const RouteTable = ({ url, description }) => {
                     <tr>
                         <td>GET</td>
                         <td><a style={{ color: "#B3966F" }} href={url} target="_blank" rel="noopener noreferrer">{url}</a></td>
-                        <td>{description} <strong>Black Myth: Wu Kong</strong></td>
+                        <td>{description} <strong>Black Myth: Wukong</strong></td>
                     </tr>
                 </tbody>
             </Table>

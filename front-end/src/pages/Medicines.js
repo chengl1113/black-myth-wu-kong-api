@@ -48,7 +48,7 @@ const Medicines = () => {
       <h1>Medicines Route</h1>
       <br />
       <h2>Introduction</h2>
-      <p>This route fetches a list of all the medicines that can be obtained in Black Myth: Wu Kong, and outputs that in JSON format.</p>
+      <p>This route fetches a list of all the medicines that can be obtained in Black Myth: Wukong, and outputs that in JSON format.</p>
       <h2>Schema</h2>
       <SchemaTable schema={schema} />
       <h2>Sample Result</h2>

@@ -4,7 +4,7 @@ import CodeBlock from '../components/CodeBlock';
 import RouteTable from '../components/RouteTable';
 
 const KeyItems = () => {
-  const jsonString = `{
+    const jsonString = `{
     "success": true,
     "count": 10,
     "data": [
@@ -60,26 +60,26 @@ const KeyItems = () => {
         }
     ]
 }`
-  const schema = [
-    ['name', 'string', 'Name of the key item'],
-    ['rarity', 'string', 'Rarity of the key item']
-  ]
-  const url = "http://localhost:5000/api/keyItems";
-  const description = "This route retrieves a list of all the key items of ";
-  return (
-    <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>
-      <h1>Key Items Route</h1>
-      <br />
-      <h2>Introduction</h2>
-      <p>This route fetches a list of all the key items that can be obtained in Black Myth: Wu Kong, and outputs that in JSON format.</p>
-      <h2>Schema</h2>
-      <SchemaTable schema={schema} />
-      <h2>Sample Result</h2>
-      <CodeBlock jsonString={jsonString} />
-      <h2>Route</h2>
-      <RouteTable url={url} description={description} />
-    </div>
-  )
+    const schema = [
+        ['name', 'string', 'Name of the key item'],
+        ['rarity', 'string', 'Rarity of the key item']
+    ]
+    const url = "http://localhost:5000/api/keyItems";
+    const description = "This route retrieves a list of all the key items of ";
+    return (
+        <div style={{ display: 'flex', justifyContent: "center", flexDirection: 'column', margin: '5% auto', width: "60%" }}>
+            <h1>Key Items Route</h1>
+            <br />
+            <h2>Introduction</h2>
+            <p>This route fetches a list of all the key items that can be obtained in Black Myth: Wukong, and outputs that in JSON format.</p>
+            <h2>Schema</h2>
+            <SchemaTable schema={schema} />
+            <h2>Sample Result</h2>
+            <CodeBlock jsonString={jsonString} />
+            <h2>Route</h2>
+            <RouteTable url={url} description={description} />
+        </div>
+    )
 }
 
 export default KeyItems
