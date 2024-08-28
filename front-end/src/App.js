@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 // Component imports
 import Navigational from './components/Navigational';
 import Sidebar from './components/Sidebar';
@@ -36,7 +37,11 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-
+        <Helmet>
+          <title>Getting Started - Black Myth Wukong API</title>
+          <meta name="description" content="This is getting started page for the Black Myth Wukong API documentation" />
+          <link rel="canonical" href="https://black-myth-wu-kong-api.vercel.app/" />
+        </Helmet>
         <Navigational theme={theme} toggleTheme={toggleTheme} />
         <div className='body' style={{ display: 'flex', flexDirection: 'row' }}>
           <Sidebar />
