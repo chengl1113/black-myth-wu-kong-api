@@ -136,7 +136,10 @@ const GettingStarted = () => {
             <p>Since this API doesn't require you to provide an API key, it's extremely easy to use. Feel free to explore our documentation and test routes! Let's retrieve a list of all the weapons in the game with the following route:</p>
             <ul>
                 <li>METHOD: <strong>GET</strong></li>
-                <li>URL: <a style={{ color: "#B3966F" }} href={url} target="_blank" rel="noopener noreferrer">{url}</a></li>
+                <li>URL: <a style={{
+                    color: "#B3966F", wordBreak: "break-all",
+                    overflowWrap: "break-word"
+                }} href={url} target="_blank" rel="noopener noreferrer">{url}</a></li>
                 <li>RESULT</li>
             </ul>
             <CodeBlock jsonString={jsonString} />

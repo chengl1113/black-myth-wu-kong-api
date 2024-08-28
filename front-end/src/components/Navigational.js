@@ -24,7 +24,6 @@ const Navigational = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#">Docs</Nav.Link>
-                        <Nav.Link href="#">Blog</Nav.Link>
                     </Nav>
                     <Nav>
                         {/* GitHub Link */}
