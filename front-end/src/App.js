@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 // Component imports
 import Navigational from './components/Navigational';
-import Sidebar from './components/Sidebar';
 
 // Context imports
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -44,7 +43,6 @@ function App() {
         </Helmet>
         <Navigational theme={theme} toggleTheme={toggleTheme} />
         <div className='body' style={{ display: 'flex', flexDirection: 'row' }}>
-          <Sidebar />
           <div className="content" style={{ width: "100%" }}>
             <Routes>
               <Route path="/" element={<GettingStarted />} />
